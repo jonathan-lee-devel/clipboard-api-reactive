@@ -1,11 +1,3 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Java CI with Maven
 
 on:
@@ -27,5 +19,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Build Administration Service with Maven
+      run: mvn -B package --file administration-service/pom.xml
+    - name: Build Customer Service with Maven
+      run: mvn -B package --file customer-service/pom.xml
+    - name: Build Driver Service with Maven
+      run: mvn -B package --file driver-service/pom.xml
+    - name: Build Registration Service with Maven
       run: mvn -B package --file registration-service/pom.xml
+    - name: Build Supplier Service with Maven
+      run: mvn -B package --file supplier-service/pom.xml

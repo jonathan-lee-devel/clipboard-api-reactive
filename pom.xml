@@ -14,10 +14,10 @@
   </properties>
 
   <modules>
-    <module>registration-service</module>
     <module>administration-service</module>
     <module>customer-service</module>
     <module>driver-service</module>
+    <module>registration-service</module>
     <module>supplier-service</module>
   </modules>
 </project>
