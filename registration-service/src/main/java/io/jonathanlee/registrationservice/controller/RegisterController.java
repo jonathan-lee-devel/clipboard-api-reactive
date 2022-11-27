@@ -50,7 +50,7 @@ public class RegisterController {
   public Mono<ResponseEntity<RegistrationStatusDto>> confirm(
       @PathVariable final String tokenValue
   ) {
-    return this.registrationService.confirm(tokenValue)
+    return this.registrationService.confirm(Mono.just(tokenValue))
         .map(registrationStatusDto -> switch (registrationStatusDto.getRegistrationStatus()) {
           case EMAIL_VERIFICATION_EXPIRED, INVALID_TOKEN ->
               ResponseEntity.status(HttpStatus.BAD_REQUEST).body(registrationStatusDto);

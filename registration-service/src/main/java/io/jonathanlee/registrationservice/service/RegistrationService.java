@@ -8,6 +8,6 @@ public interface RegistrationService {
 
   Mono<RegistrationStatusDto> register(final Mono<RegistrationDto> registrationDto);
 
-  Mono<RegistrationStatusDto> confirm(final String tokenValue);
+  Mono<RegistrationStatusDto> confirm(final Mono<String> tokenValue);
 
 }
